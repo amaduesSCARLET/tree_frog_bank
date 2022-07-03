@@ -17,13 +17,11 @@ class account(models.Model):
 class credit_card(models.Model):
     creditcard_account = models.ForeignKey(to=account, to_field="id", on_delete=models.CASCADE)
     limit_remain=models.FloatField()
-    # (default=creditCard_type.objects.filter(
-    #         credit=customer.objects.filter(
-    #             id=account.objects.filter(
-    #                 id=creditcard_account)[0].account_customer_id)[0].customer_credit)[0].limit)
+
 
 class bank(models.Model):
     name=models.CharField(max_length=32)
+    rate=models.FloatField(default=0.045)
 
 class transactionType_list(models.Model):
     TypeId=models.IntegerField(primary_key=True)
@@ -37,8 +35,8 @@ class transaction_history(models.Model):
     amount=models.FloatField()
     time=models.DateField()
     useCreditCard=models.BooleanField(default=False)
-    inAccount = models.ForeignKey(to=account, to_field="id",null=True,on_delete=models.CASCADE,related_name='inAccount')
-    outAccount = models.ForeignKey(to=account, to_field="id",null=True,on_delete=models.CASCADE,related_name='outAccount')
+    inAccount = models.ForeignKey(to=account, to_field="id",null=True,on_delete=models.CASCADE,related_name='inAccount',default=None)
+    outAccount = models.ForeignKey(to=account, to_field="id",null=True,on_delete=models.CASCADE,related_name='outAccount',default=None)
     transactionType=models.ForeignKey(to=transactionType_list,to_field="TypeId",on_delete=models.CASCADE)
     consumptionType=models.ForeignKey(to=consumptionType_list,to_field="CoTypeId",on_delete=models.CASCADE)
 
