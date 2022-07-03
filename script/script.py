@@ -232,5 +232,5 @@ class treeFrogBank():
 # treeFrogBank.tradeAnalyse(1,2022,7)
 # treeFrogBank.customer_loan(1000000000,25,datetime.date(2022,7,3),1)
 # treeFrogBank.customer_loan(1000,25,datetime.date(2022,7,3),1)
-# treeFrogBank.customer_repayment(amount=81.175,time=datetime.date(2023,7,3),id=1,loanid=5)
+# treeFrogBank.customer_repayment(amount=81.175,time=datetime.date(2025,7,3),id=1,loanid=5)
 # treeFrogBank.customerRepaymentInquire(5)
